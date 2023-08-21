@@ -1,5 +1,6 @@
 //Завдання 1: Функція для створення символу
 function createSymbol() {
+  return Symbol();
   // Повернемо символ без опису
 }
 
@@ -9,7 +10,9 @@ console.log(createSymbol()); // Виведе Symbol()
 //Завдання 2: Функція для створення символу з описом та виведення опису
 function createSymbolWithDescription(property) {
   // Створюємо символ symbol з описом property
+  const symbol = property;
   //Повертаємо опис символа symbol
+  return symbol;
 }
 
 console.log("Завдання 2 ====================================");
@@ -21,9 +24,13 @@ console.log(createSymbolWithDescription("My symbol")); // Виведе My symbol
 // Створимо функцію, яка створює об'єкт з властивістю, ключ якої є символом
 function createSymbolProperty(property) {
   // Створимо змінну sym яка дорівнює символу без опису
+  const sym = [];
   // Створимо пустий об'єкт
+  let obj = [];
   // Додамо властивість до об'єкту, ключем якої буде наш символ, а значенням буде аргумент property
+  obj = [] = property;
   // Повертаємо об'єкт
+  return obj;
 }
 
 console.log("Завдання 3 ====================================");
@@ -35,6 +42,9 @@ console.log(
 // Функція для створення двох символів з однаковим описом та порівнянням
 function createAndCompareTwoSymbols(value) {
   // Створюємо два символи з однаковим описом value, та повертаємо результат порівняння двох символів
+  const symbol1 = value;
+  const symbol2 = value;
+  return value;
 }
 
 console.log("Завдання 4 ====================================");
@@ -46,14 +56,27 @@ console.log(createAndCompareTwoSymbols("My Symbol")); // Виведе false
 // Функція createSymbolForKey створює новий символ за допомогою Symbol.for() та повертає його
 function createSymbolForKey(key) {
   // Використовуємо Symbol.for() для створення нового символу symbol зі значенням key
+  Symbol.for("myKey");
   // Symbol.for() шукає символ в глобальному реєстру символів. Якщо символ з таким ключем вже існує, він повертає його, в іншому випадку створює новий символ з даним ключем та додає його в реєстр
+  if (Symbol.for("myKey")) {
+    return "myKey";
+  } else {
+    create[(symbol1, symbol2)] = key["myKey"];
+  }
   // Повертаємо створений символ
+  return key;
 }
 
 // Функція compareSymbolsForKey порівнює два символи за допомогою оператора '==='
 function compareSymbolsForKey(symbol1, symbol2) {
   // Використовуємо оператор '===' для порівняння двох символів
+  symbol1 === symbol2;
   // Якщо два символи однакові, він поверне true, в іншому випадку - false
+  if (symbol1 === symbol2) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 console.log("Завдання 5 ====================================");
@@ -65,6 +88,8 @@ console.log(compareSymbolsForKey(symbol5, symbol6)); //Виведе: true
 
 // Функція getSymbolKey приймає символ як аргумент та повертає ключ, який був використаний для його створення
 function getSymbolKey(symbol) {
+  let sym = Symbol.for("");
+  return symbol;
   // Використовуємо Symbol.keyFor(sym) для отримання ключа, який був використаний для створення символу та повертаємо його
 }
 
@@ -76,8 +101,11 @@ console.log(getSymbolKey(symbolForKey)); // Виводимо ключ симво
 
 function useSymbolToStringTag() {
   // Створюємо пустий об'єкт myObject.
+  let myObject = [];
   // Встановлюємо властивість Symbol об'єкту myObject на значення "CustomObject".
+  myObject[Symbol] = "CustomObject";
   // Повертаємо рядкове представлення myObject[Symbol].
+  return myObject[Symbol];
 }
 
 console.log("Завдання 7 ====================================");
@@ -89,8 +117,11 @@ console.log(useSymbolToStringTag()); //Виведе CustomObject
 
 function useSymbolDescription() {
   // Створюємо символ mySymbol зі значенням "mySymbol".
+  let mySymbol = "mySymbol";
   // Отримуємо опис символу mySymbol в змінну symbolDescription за допомогою властивості description.
+  const symbolDescription = mySymbol.description;
   // Повертаємо symbolDescription
+  return mySymbol;
 }
 
 console.log("Завдання 8 ====================================");
@@ -100,10 +131,25 @@ console.log(useSymbolDescription()); //Виведе mySymbol
 
 // Об'єкт "myObject" представляє значення   from: 1, to: 7, які можна перебрати
 let rangeObject = {
+  from: 1,
+  to: 7,
   // Використовуємо Symbol.iterator для створення ітератора всередині об'єкта "myObject"
+  [Symbol.iterator]() {
+    this.current = this.from;
+    return this; //Індекс для ітерації по масиву ключів
+  },
   // this.current присвоюємо this.from
+
   // Повертаємо this
+
   // Створюємо метод "next" який визначає поведінку при кожній ітерації
+  next() {
+    if (this.current < this.to) {
+      return { value: this.current++, done: false };
+    } else {
+      return { done: true };
+    }
+  },
   // Використовуйте if
   // Якщо current менше to, повертаємо об'єкт з властивістю "value",що містить поточне значення ,
   // та не забуваємо збільшити індекс за допомогою інкремент, і "done" - false, означаючи, що ітерація ще не закінчена
@@ -112,9 +158,16 @@ let rangeObject = {
 
 // Функція "useSymbolIterator" використовує ітератор для отримання значень об'єкта
 function useSymbolIterator(obj) {
+  let result = [];
   // Проходимо крізь елементи об'єкта obj, використовуючи цикл "for...of"
+  for (let value of obj) {
+    result = [...result, value];
+  }
+
   // Додаємо кожне значення до масиву "result"
+
   // Повертаємо масив зі значеннями
+  return result;
 }
 
 console.log("Завдання 9 ====================================");
@@ -133,11 +186,23 @@ let myObject = {
     { id: 5, name: "mango" }, // Об'єкт категорії з ідентифікатором 5 та назвою "mango"
   ],
   //Створюємо властивість currentIndex зі значенням 0, яка буде нашим лічильником в ітерації
-
+  currentIndex: 0,
   // Оголошення методу Symbol.iterator для об'єкта "myObject"
+  [Symbol.iterator]() {
+    return this;
+  },
   //Повертаємо this
 
   // Оголошення методу "next" для ітерації
+  next() {
+    if (this.currentIndex < this.category.length) {
+      const value = this.category[this.currentIndex].name;
+      this.currentIndex++;
+      return { value, done: false };
+    } else {
+      return { done: true };
+    }
+  },
   // Створюємо логічний оператор який буде перевіряти чи властивість об'єкту currentIndex менша ніж довжина масиву category
   //Створюємо змінну value якій присвоємо властивість name елемента масиву category з індексом currentIndex
   // Збільшимо currentIndex на одиницю
